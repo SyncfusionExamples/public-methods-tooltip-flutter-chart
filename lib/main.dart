@@ -13,9 +13,7 @@ class ChartApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Chart Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: MyHomePage(),
     );
   }
@@ -30,72 +28,58 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  SfCartesianChart chart;
+  TooltipBehavior _tooltipBehavior;
 
-SfCartesianChart chart;
-TooltipBehavior _tooltipBehavior;
-
-@override
-void initState(){
-  _tooltipBehavior = TooltipBehavior (enable: true, shouldAlwaysShow: true);
-  super.initState();
-}
-
+  @override
+  void initState() {
+    _tooltipBehavior = TooltipBehavior(enable: true, shouldAlwaysShow: true);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [
-    ChartData(10, 17),
-    ChartData(20, 34),
-    ChartData(30, 25),
-    ChartData(40, 10),
-    ChartData(50, 28)
-// Add the required data  
-]; 
- chart = SfCartesianChart(
-   primaryXAxis: NumericAxis(interval: 10),
-  tooltipBehavior: _tooltipBehavior,
-  series: <CartesianSeries>[
-    ColumnSeries<ChartData, double>(
-        enableTooltip: true,
-        dataSource: chartData,
-        xValueMapper: (ChartData data, _) => data.x,
-        yValueMapper: (ChartData data, _) => data.y,
-        name:'Tooltip'),
-    ]
-);
-return Scaffold(
-  appBar: AppBar(
-    title: Text('Public Methods')
-  ),
-  body: Container(
-    child: Column(
-      children: <Widget>[
-        FlatButton(
-          color: Theme.of(context).primaryColor,
-          child: Text('Show'),
-          onPressed: show,
-
-        ),
-        Center(
-          child: Container(height: 500,
-          width: 320,
-            child: chart),
-        )
-      ]
-    )
-  )
-);
-
+      ChartData(10, 17),
+      ChartData(20, 34),
+      ChartData(30, 25),
+      ChartData(40, 10),
+      ChartData(50, 28)
+// Add the required data
+    ];
+    chart = SfCartesianChart(
+        primaryXAxis: NumericAxis(interval: 10),
+        tooltipBehavior: _tooltipBehavior,
+        series: <CartesianSeries>[
+          ColumnSeries<ChartData, double>(
+              enableTooltip: true,
+              dataSource: chartData,
+              xValueMapper: (ChartData data, _) => data.x,
+              yValueMapper: (ChartData data, _) => data.y,
+              name: 'Tooltip'),
+        ]);
+    return Scaffold(
+        appBar: AppBar(title: Text('Public Methods')),
+        body: Container(
+            child: Column(children: <Widget>[
+          FlatButton(
+            color: Theme.of(context).primaryColor,
+            child: Text('Show'),
+            onPressed: show,
+          ),
+          Center(
+            child: Container(height: 500, width: 320, child: chart),
+          )
+        ])));
   }
 
-void show() {
-  tooltip.showByIndex(0,1);
+  void show() {
+    _tooltipBehavior.showByIndex(0, 1);
   }
 
-void hide(){
-    tooltip.hide();
-}
-
+  void hide() {
+    _tooltipBehavior.hide();
+  }
 }
 
 class ChartData {
