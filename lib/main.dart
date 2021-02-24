@@ -32,7 +32,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 SfCartesianChart chart;
-TooltipBehavior tooltip;
+TooltipBehavior _tooltipBehavior;
+
+@override
+void initState(){
+  _tooltipBehavior = TooltipBehavior (enable: true, shouldAlwaysShow: true);
+  super.initState();
+}
 
 
   @override
@@ -44,11 +50,10 @@ TooltipBehavior tooltip;
     ChartData(40, 10),
     ChartData(50, 28)
 // Add the required data  
-];
-tooltip = TooltipBehavior (enable: true, shouldAlwaysShow: true);
+]; 
  chart = SfCartesianChart(
    primaryXAxis: NumericAxis(interval: 10),
-  tooltipBehavior: tooltip,
+  tooltipBehavior: _tooltipBehavior,
   series: <CartesianSeries>[
     ColumnSeries<ChartData, double>(
         enableTooltip: true,
@@ -84,11 +89,11 @@ return Scaffold(
   }
 
 void show() {
-  tooltip.showByIndex(0,1);
+  _tooltipBehavior.showByIndex(0,1);
   }
 
 void hide(){
-    tooltip.hide();
+    _tooltipBehavior.hide();
 }
 
 }
