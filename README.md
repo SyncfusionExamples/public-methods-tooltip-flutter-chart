@@ -1,2 +1,22 @@
 # public-methods-tooltip-flutter-chart
-Show/hide the tooltip in Flutter Cartesian chart using the public methods.
+
+A quick-start example to help you add the Syncfusion Flutter Charts package to a Flutter app. You will learn how to add a Cartesian chart to a Flutter project. You will then learn how to show/hide the tooltip in Flutter Cartesian chart using the public methods. Flutter Cartesian chart widget provides support for showing or hiding the tooltip dynamically using the public methods. Public methods are methods that can be called by using the class object where they are defined. Likewise, chart widget also has some public methods to show or hide the tooltip dynamically such as.
+
+* show
+* showByIndex
+* showByPixel
+* hide
+
+Documentation: https://help.syncfusion.com/flutter/cartesian-charts/methods#methods-in-tooltipbehavior 
+
+## Requirements to run the demo
+* [VS Code](https://code.visualstudio.com/download)
+* [Flutter SDK v2.0.0+](https://flutter.dev/docs/development/tools/sdk/overview)
+* [For more development tools](https://flutter.dev/docs/development/tools/devtools/overview)
+
+## How to run this application
+To run this application, you need to first clone or download the ‘public methods tooltip flutter chart’ repository and open it in your preferred IDE. Then, build and run your project to view the output.
+
+## Further help
+For more help, check the [Syncfusion Flutter documentation](https://help.syncfusion.com/flutter/introduction/overview), or
+ [Flutter documentation](https://flutter.dev/docs/get-started/install).
