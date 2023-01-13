@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_core/core.dart';
 
 void main() {
-  // Register your license here
-  SyncfusionLicense.registerLicense(null);
   return runApp(ChartApp());
 }
 
@@ -63,8 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Container(
             child: Column(children: <Widget>[
           TextButton(
-            style:
-                TextButton.styleFrom(primary: Theme.of(context).primaryColor),
+            style: TextButton.styleFrom(
+                foregroundColor: Theme.of(context).primaryColor),
             child: Text('Show'),
             onPressed: show,
           ),
